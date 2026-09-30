@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rclone Google Drive client — personal OAuth app</title>
+  <meta name="description" content="Home page for a personal Google Drive OAuth client used with rclone. Runs locally, operates no servers, collects nothing.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f0c'/%3E%3Cpath d='M20 18l14 14-14 14' stroke='%2355e29a' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M34 46h12' stroke='%2355e29a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <a class="wordmark" href=".">
+      <span class="wordmark-glyph">❯</span>kusold<span class="wordmark-dim">/rclone-client</span>
+    </a>
+    <nav>
+      <a href="./privacy.html">Privacy</a>
+      <a href="https://rclone.org/">rclone.org&nbsp;↗</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+
+    <section class="hero" data-reveal>
+      <p class="eyebrow">OAuth 2.0 client home page</p>
+      <h1>A personal Google Drive client for <span class="accent">rclone</span>.</h1>
+      <p class="lead">
+        This is the home page of a personal OAuth client — an ID issued by Google to
+        one person so that <a href="https://rclone.org/">rclone</a>, the open-source
+        command-line file sync tool, can talk to their own Google Drive.
+        It is not a service, a company, or a product. There is no server,
+        and nothing is collected.
+      </p>
+    </section>
+
+    <section class="terminal" data-reveal style="--d:0.12s" aria-label="How the client is used with rclone">
+      <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">rclone — drive setup</span></div>
+      <pre><code><span class="c-prompt">$</span> rclone config
+n) New remote
+name&gt; gdrive
+Storage&gt; drive                <span class="c-dim"># Google Drive</span>
+client_id&gt; ••••••••••••••••••.apps.googleusercontent.com
+client_secret&gt; ••••••••••••••
+scope&gt; 1                      <span class="c-dim"># full access</span>
+Use auto config?
+y) Yes                        <span class="c-dim"># browser opens → sign in with Google</span>
+<span class="c-ok">✓ Token saved to ~/.config/rclone/rclone.conf</span>
+<span class="c-prompt">$</span> rclone ls gdrive: <span class="cursor" aria-hidden="true"></span></code></pre>
+    </section>
+
+    <section class="cards">
+      <article class="card" data-reveal style="--d:0.2s">
+        <h2>What this app does</h2>
+        <ul>
+          <li>Lets rclone, running on the authorizing user's own machine, read and write files in their own Google Drive.</li>
+          <li>Requests the three Drive scopes listed below — nothing more.</li>
+          <li>Keeps its OAuth token in rclone's local config file.</li>
+        </ul>
+      </article>
+      <article class="card" data-reveal style="--d:0.28s">
+        <h2>What it doesn't do</h2>
+        <ul>
+          <li>Operate any server, backend, or database — it is just a client ID.</li>
+          <li>Collect analytics, set cookies, or keep logs.</li>
+          <li>See, store, or forward anyone's data. <a href="./privacy.html">Privacy&nbsp;policy&nbsp;→</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scopes" data-reveal style="--d:0.36s">
+      <h2 class="label">Requested scopes</h2>
+      <div class="scope">
+        <code>https://www.googleapis.com/auth/drive</code>
+        <p>See, edit, create, and permanently delete all of your Google Drive files — required for rclone's sync and copy commands.</p>
+      </div>
+      <div class="scope">
+        <code>https://www.googleapis.com/auth/docs</code>
+        <p>See, edit, create, and permanently delete your Google Docs files, so rclone can handle Docs like any other file.</p>
+      </div>
+      <div class="scope">
+        <code>https://www.googleapis.com/auth/drive.metadata.readonly</code>
+        <p>See information about your Google Drive files — names, sizes, and modification times, without file contents.</p>
+      </div>
+    </section>
+
+    <aside class="note" data-reveal style="--d:0.44s">
+      <strong>Why does Google call this app “unverified”?</strong>
+      It's personal — far fewer than 100 users — so it will never go through Google's
+      verification process. On first sign-in, Google may show an
+      <em>unverified app</em> screen; that's this client. If you reached that screen
+      unexpectedly, an rclone config somewhere is pointing at the wrong client ID.
+    </aside>
+
+  </main>
+
+  <footer class="site-foot">
+    <p>A one-person OAuth client for <a href="https://rclone.org/">rclone</a> ·
+       <a href="./privacy.html">Privacy policy</a> ·
+       <a href="https://github.com/kusold/rclone-oauth-homepage">Source</a></p>
+    <p class="foot-dim">Contact: git@mikekusold.com · Last updated September 30, 2026</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy — rclone Google Drive client</title>
+  <meta name="description" content="Privacy policy for a personal Google Drive OAuth client used with rclone. No servers, no collection, no analytics.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f0c'/%3E%3Cpath d='M20 18l14 14-14 14' stroke='%2355e29a' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M34 46h12' stroke='%2355e29a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <a class="wordmark" href=".">
+      <span class="wordmark-glyph">❯</span>kusold<span class="wordmark-dim">/rclone-client</span>
+    </a>
+    <nav>
+      <a href=".">Home</a>
+      <a href="https://rclone.org/">rclone.org&nbsp;↗</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <article class="prose" data-reveal>
+
+      <p class="eyebrow">OAuth 2.0 client</p>
+      <h1>Privacy Policy</h1>
+
+      <p class="meta-line">
+        Last updated: September 30, 2026<br>
+        Applies to the personal Google Drive OAuth client used with
+        <a href="https://rclone.org/">rclone</a> whose home page is this site.
+      </p>
+
+      <h2><span class="sec-no">01</span>About this app</h2>
+      <p>
+        This is the privacy policy for a personal OAuth 2.0 client — a client ID and
+        secret issued by Google to a single individual, Mike Kusold, for use with
+        rclone, an open-source command-line file sync tool. The "app" is not a
+        business and operates no infrastructure of any kind. Its entire purpose is
+        letting rclone, running locally, access the Drive account that authorized it.
+      </p>
+
+      <h2><span class="sec-no">02</span>What the app can access</h2>
+      <p>When a Google account authorizes this client, Google may grant it these scopes:</p>
+      <ul>
+        <li><code>https://www.googleapis.com/auth/drive</code> — see, edit, create, and permanently delete all of your Google Drive files</li>
+        <li><code>https://www.googleapis.com/auth/docs</code> — see, edit, create, and permanently delete your Google Docs files</li>
+        <li><code>https://www.googleapis.com/auth/drive.metadata.readonly</code> — see information about your Google Drive files</li>
+      </ul>
+      <p>
+        Any access under these scopes is performed by the rclone program running on
+        the machine of the person who authorized it, only when they run a command
+        that asks for it. The client ID itself contains no code and runs nowhere.
+      </p>
+
+      <h2><span class="sec-no">03</span>Where your data goes</h2>
+      <p>
+        File data moves only between the computer running rclone and Google's Drive
+        API, over an encrypted connection. This app has no servers, no backend, no
+        website logic, and no databases. It cannot receive, inspect, store, process,
+        or transmit your data, because there is nothing on its side to receive it.
+      </p>
+
+      <h2><span class="sec-no">04</span>What is collected</h2>
+      <p>
+        Nothing. This site and this client use no analytics, no cookies, no logs, no
+        trackers, and no advertising. The only records of an authorization that exist
+        anywhere are Google's own records and the local rclone configuration on the
+        machine that granted it.
+      </p>
+
+      <h2><span class="sec-no">05</span>OAuth tokens on your machine</h2>
+      <p>
+        After authorization, Google issues OAuth tokens, and rclone stores them in its
+        local configuration file (for example <code>~/.config/rclone/rclone.conf</code>
+        on Linux and macOS). Anyone with access to that file can reach the associated
+        Drive account, so it should be protected like a password.
+      </p>
+
+      <h2><span class="sec-no">06</span>Third parties</h2>
+      <ul>
+        <li><strong>Google</strong> processes Drive data under its own
+          <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+          <a href="https://policies.google.com/terms">Terms of Service</a>.</li>
+        <li><strong>rclone</strong> is open source — you can read exactly what it does
+          with your data at <a href="https://github.com/rclone/rclone">github.com/rclone/rclone</a>.</li>
+      </ul>
+
+      <h2><span class="sec-no">07</span>Revoking access</h2>
+      <p>
+        You can revoke this client at any time: Google Account →
+        <em>Data &amp; privacy</em> → <em>Third-party apps with account access</em> →
+        remove the app. Deleting the remote from rclone's configuration also discards
+        its local token.
+      </p>
+
+      <h2><span class="sec-no">08</span>Children</h2>
+      <p>
+        This client is not directed to children under 13, and no data is knowingly
+        collected from anyone.
+      </p>
+
+      <h2><span class="sec-no">09</span>Changes to this policy</h2>
+      <p>
+        If this policy ever changes, the current version will be posted at this URL
+        with a new "last updated" date.
+      </p>
+
+      <h2><span class="sec-no">10</span>Contact</h2>
+      <p>Questions about this client or this policy: <a href="mailto:git@mikekusold.com">git@mikekusold.com</a></p>
+
+      <a class="backlink" href=".">❯ back to home</a>
+    </article>
+  </main>
+
+  <footer class="site-foot">
+    <p>A one-person OAuth client for <a href="https://rclone.org/">rclone</a> ·
+       <a href=".">Home</a> ·
+       <a href="https://github.com/kusold/rclone-oauth-homepage">Source</a></p>
+    <p class="foot-dim">Contact: git@mikekusold.com · Last updated September 30, 2026</p>
+  </footer>
+</body>
+</html>
